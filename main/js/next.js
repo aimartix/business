@@ -4,8 +4,8 @@ function show(a) {
 	if (i == 0) {
 		back.innerText = "返回"
 		ui1.style.display = '';
-		ui2.style.display = 'none';
-		ui3.style.display = 'none';
+		ui2.style.display = '';
+		ui3.style.display = '';
 		ui4.style.display = 'none';
 		ui5.style.display = 'none';
 		ui51.style.display = 'none';
