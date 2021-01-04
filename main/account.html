@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<!-- 新 Bootstrap4 核心 CSS 文件 -->
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+
+		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+		<!-- <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script> -->
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+		<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+		<!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+		<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/sticky-footer-navbar.css" rel="stylesheet">
+		<!-- <script src="./js/next.js"></script>
+		<script src="./js/function.js"></script> -->
+		<title>农村房屋信息采集助手</title>
+	</head>
+	<style>
+		.footer{
+			position: fixed;
+			bottom: 0;
+		}
+		.u-center{
+			text-align: center;
+			
+		}
+		.u-btn{
+			background-color: #002752;
+			border-color: #002752;
+		}
+		
+	    .one{
+	        width: 28%;
+	        float: left;
+	    }
+		.two {
+			width: 63%;
+			float: left;
+			box-sizing: border-box;
+			}
+		.fnt{
+			font-size:12px;
+		}
+		
+		.list-group-item{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		
+		
+	</style>
+	<body>
+		<header style="width: 100%;position: fixed;top: 0;">
+			<nav class="navbar navbar-dark" style="background-color: #002752;">
+
+				<a id="back" style="color: white;font-size: 15px;" onclick="back()">返回</a>
+				<div style="color: white;font-size: 20px;justify-content: center;">
+					我的账号
+				</div>
+				<a>"&nbsp;""&nbsp;"</a>
+
+			</nav>
+		</header>
+		<div id="div1" style="width:100%;margin-top: 30%;">
+			<form>
+
+				<div class="form-group row fnt " style="margin-left: 10%;margin-right: 10%;">
+
+					<ul class="list-group u-center" style="width:100%;">
+						<li class="list-group-item">姓名</li>
+						<li class="list-group-item">
+							手机号
+						</li>
+						<li class="list-group-item">
+							所属区域
+						</li>
+						<li class="list-group-item">用户角色</li>
+						<li class="list-group-item">用户状态</li>
+
+
+					</ul>
+				</div>
+              <div class="form-group row fnt" style="margin-left: 10%;margin-right: 10%;">
+              
+              	<ul class="list-group" style="width:100%;">
+              		<li class="list-group-item">修改密码</li>
+              	
+              
+              
+              	</ul>
+              </div>
+			</form>
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		function GetQueryString(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if (r != null) return unescape(r[2]);
+			return null;
+		}
+		var id = GetQueryString("id");
+
+		function back() {
+			window.location.href = "http://www.shie1d.top/index.html?id=" + id;
+		}
+	</script>
+</html>

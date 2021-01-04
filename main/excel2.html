@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>农村房屋安全信息采集助手</title>
+		<script src="js/jquery.js"></script>
+		<style>
+			table {
+    border-collapse: collapse;
+	/* height: 10%; */
+}
+
+table, td, th {
+	/* width: 100%; */
+    border: 1px solid black;
+	height: 35px;
+}
+.fts{
+	font-size: 12px;
+}
+input{
+	margin: 0;
+}
+.ul_{
+	display: flex;
+	justify-content: space-around;
+}
+.ul_ li{
+	display: flex;
+	align-items: center;
+}
+.mui-checkbox1 input[type=checkbox]:before {
+			content: '\e413';
+		}		
+.mui-checkbox1 input[type=checkbox]:checked:before {
+			content: '\e443';
+		}		
+
+
+</style>
+	</head>
+	<body>
+		<h1 style="text-align: center;margin-top: 15%;">农村房屋安全信息采集表(自建房)</h1>
+
+		<table style="width: 80%;margin-left: 10%;margin-right: 10%;table-layout: fixed;text-align: center;margin-bottom: 10%;"
+		 class="fts">
+			<tr>
+				<th colspan="6">第一部分：基本信息</th>
+			</tr>
+			<tr>
+				<td colspan="1">地址</td>
+				<td colspan="5"><span id="Address"></span></td>
+			</tr>
+			<tr>
+				<td>房屋或单位名称</td>
+				<td colspan="5"><span id="BuildName"></span></td>
+			</tr>
+			<tr>
+				<td colspan="1" id="Host"></td>
+				<td colspan="1">姓名或机构名称</td>
+				<td colspan="1"><span id="HostName"></span></td>
+				<td colspan="1">证件号码</td>
+				<td colspan="2"><span id="HostId"></span></td>
+			</tr>
+			<tr>
+				<td colspan="1">建筑层数</td>
+				<td colspan="2"><span id="Floor"></span></td>
+				<td colspan="1">建筑面积</td>
+				<td colspan="2"><span id="Area"></span></td>
+			</tr>
+			<tr>
+				<td>建造年代</td>
+				<td colspan="5"><span id="Time"></span></td>
+			</tr>
+			<tr>
+				<td>结构类型</td>
+				<td colspan="5"><span id="Jiegou"></span></td>
+			</tr>
+			<tr>
+				<td>建造方式</td>
+				<td colspan="5"><span id="Way"></span></td>
+			</tr>
+			<tr>
+				<td>土地性质</td>
+				<td colspan="5"><span id="Nature"></span></td>
+			</tr>
+			<tr>
+				<td>主要用途</td>
+				<td colspan="5"><span id="Purpose"></span></td>
+			</tr>
+			<th colspan="6">第二部分：审批手续情况</th>
+			<tr>
+				<td colspan="1">宅基地手续</td>
+				<td colspan="2">
+					<span id="Yongdi"></span>
+					<!-- <label>有</label>
+			 <input type="radio" name="category" value="有"/>
+			 <label style="margin-left: 10%;">无</label>
+			 <input type="radio" name="category" value="无" /> -->
+				</td>
+				<td colspan="1">规划建设手续</td>
+				<td colspan="2">
+					<span id="Guihua"></span>
+					<!-- <label>有</label>
+		  			 <input type="radio" name="category" value="有"/>
+		  			 <label style="margin-left: 10%;">无</label>
+		  			 <input type="radio" name="category" value="无" /> -->
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1">竣工验收手续</td>
+				<td colspan="2">
+					<span id="Jungong"></span>
+					<!-- <label>有</label>
+	  	  			 <input type="radio" name="category" value="有"/>
+	  	  			 <label style="margin-left: 10%;">无</label>
+	  	  			 <input type="radio" name="category" value="无" /> -->
+				</td>
+				<td colspan="1">房屋登记手续</td>
+				<td colspan="2">
+					<span id="Dengji"></span>
+					<!-- <label>有</label>
+	  	  			 <input type="radio" name="category" value="有"/>
+	  	  			 <label style="margin-left: 10%;">无</label>
+	  	  			 <input type="radio" name="category" value="无" /> -->
+				</td>
+			</tr>
+
+			<th colspan="6">第三部分：改造情况</th>
+			<tr>
+				<td colspan="1">是否改造</td>
+				<td colspan="5">
+					<span id="Remould"></span>
+					<!-- <ul class="ul_">
+				<li><input class="change" type="radio" name="category" value="有"/>是</li>
+				<li><input class="change" type="radio" name="category" value="无" />否</li>
+				<li><input class="change" type="radio" name="category" value="无" />改造1次</li>
+				<li><input class="change" type="radio" name="category" value="无" />改造2次及以上</li>  
+			  </ul> -->
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1">改造内容</td>
+				<td colspan="5">
+					<span id="Recontent"></span>
+					<!-- <label>楼顶加层</label>
+			  <input type="radio" name="category" value="有"/>
+			  <label style="margin-left: 5%;">周边扩建</label>
+			  <input type="radio" name="category" value="无" />
+			  <label style="margin-left: 5%;">楼内夹层</label>
+			  <input type="radio" name="category" value="无" />
+			  <label style="margin-left: 5%;">改变承重结构</label>
+			  <input type="radio" name="category" value="无" />
+			  <label style="margin-left: 5%;">其他</label>
+			  <input type="radio" name="category" value="无" /> -->
+				</td>
+			</tr>
+			<!-- <th colspan="6">第四部分：用途改变情况</th> -->
+			<th colspan="6">第四部分：用途改变情况</th>
+			<tr>
+				<td colspan="1">是否改造</td>
+				<td colspan="5">
+					<span id="Remould"></span>
+
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1">经营审批手续</td>
+				<td colspan="5">
+					<span id="Remould"></span>
+
+				</td>
+			</tr>
+			<tr>
+				<td>主要用途</td>
+				<td colspan="5"><span id="Purpose"></span></td>
+			</tr>
+			<th colspan="6">第五部分：用能情况</th>
+			<tr>
+				<td colspan="1">采暖用能</td>
+				<td colspan="5" class="mui-checkbox">
+					<span id="Cainuan"></span>
+					<!-- <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-right: 5%;">煤炭</label>
+			  <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-right: 5%;">电</label>
+			  <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-right: 5%;">液化气</label>
+			  <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-right: 5%;">天然气</label>
+			  <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-right: 5%;">其他</label> -->
+
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1">炊事用能</td>
+				<td colspan="5">
+					<span id="Chuishi"></span>
+					<!-- <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-right: 5%;">煤炭</label>
+			  <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-right: 5%;">电</label>
+			  <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-right: 5%;">液化气</label>
+			  <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-right: 5%;">天然气</label>
+			  <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-right: 5%;">其他</label> -->
+				</td>
+			</tr>
+			<th colspan="6">第六部分：安全情况</th>
+			<tr>
+				<td colspan="1">地质灾害隐患判断</td>
+				<!-- <td colspan="1"></td> -->
+				<td colspan="5">
+					<span id="Dizhi"></span>
+					<!-- <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-right: 5%;">人工斜坡</label>
+			  <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-right: 5%;">自然斜坡</label>
+			  <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-right: 5%;">危岩</label>
+			  <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-right: 5%;">其他</label> -->
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1">房屋使用方面</td>
+				<!-- <td colspan="1"></td> -->
+				<td colspan="5">
+					<span id="Fangwu"></span>
+					<!-- <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-right: 3%;">墙体</label>
+			  <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-right: 3%;">梁柱</label>
+			  <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-right: 3%;">地基</label>
+			  <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-right: 3%;">屋面</label>
+			  <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-right: 3%;">楼板</label>
+			  <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-right: 3%;">其他</label> -->
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1">消防用电燃气方面</td>
+				<!-- <td colspan="1"></td> -->
+				<td colspan="5">
+					<span id="Xiaofang"></span>
+					<!-- <div style="float: left;text-align: left; margin-left: 15%;" class="mui-checkbox1">
+				  <div>
+					  <input type="checkbox" name="category" value="有"/>
+					  <label>消防设施未按要求配置</label>
+				  </div>
+				  <div>
+				  	  <input type="checkbox" name="category" value="有"/>
+				  	  <label>燃气及管道存在隐患</label>
+				  </div>
+				  <div>
+				  	  <input type="checkbox" name="category" value="有"/>
+				  	  <label>用电及线路敷设存在隐患</label>
+				  </div>
+				  
+			  </div>
+			  <div style="float: left;text-align: left;margin-left: 15%;">
+			  	  <div>
+			  		  <input type="checkbox" name="category" value="有"/>
+			  		  <label>消防设施设备不能正常使用</label>
+			  	  </div>
+			  	  <div>
+			  		  <input type="checkbox" name="category" value="有"/>
+			  		  <label>营业场所违规使用瓶装液化气</label>
+			  	  </div>
+			  	  <div>
+			  		  <input type="checkbox" name="category" value="有"/>
+			  		  <label>安全疏散通道和出口不畅</label>
+			  	  </div>
+			  				  -->
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1">建筑材料方面</td>
+				<!-- <td colspan="1"></td> -->
+				<td colspan="5">
+					<span id="Cailiao"></span>
+					<!-- <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-right: 5%;">使用易燃有毒装饰材料</label>
+			  <input type="checkbox" name="category" value="有"/>
+			  <label >使用不合格建筑材料</label> -->
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1">工地临建方面</td>
+				<!-- <td colspan="1"></td> -->
+				<td colspan="5">
+					<span id="Linjian"></span>
+					<!-- <div style="text-align: left;margin-left: 30%;">
+				  <div>
+					<input type="checkbox" name="category" value="有"/>
+					<label>工地各类临时用房的场地、消防、用点存在安全隐患</label>  
+				  </div>
+				  <div>
+					<input type="checkbox" name="category" value="无"/>
+					<label>违规使用低于A级要求的彩钢板和保温材料</label>  
+				  </div>
+			  </div> -->
+				</td>
+			</tr>
+			<th colspan="6">第七部分：整治计划情况</th>
+			<tr>
+				<td colspan="1">整治情况</td>
+				<td colspan="5">
+					<span id="Renovate"></span>
+					<!-- <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-right: 3%;">已整治</label>
+			  <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-right: 3%;">计划半年内整治</label>
+			  <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-right: 3%;">计划1年内整治</label>
+			  <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-right: 3%;">无整治计划</label>
+			  <input type="checkbox" name="category" value="有"/>
+			  <label style="margin-rigtht: 3%;">其他</label> -->
+				</td>
+			</tr>
+		</table>
+
+
+
+
+	</body>
+	<script type="text/javascript">
+		function GetQueryString(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if (r != null) return unescape(r[2]);
+			return null;
+		}
+		var id = GetQueryString("id");
+		var num = (GetQueryString("num"));
+		console.log("用户账号为:" + id);
+		console.log("num:" + num);
+		var Url = "http://www.shie1d.top:8080";
+		$.ajax({
+			url: "http://www.shie1d.top:8080/record",
+			data: {
+				id: id
+			},
+			type: "post",
+			success: function(data) {
+				if (data.status == 1) {
+					console.log("成功");
+					console.log(data.data[num].Address)
+					console.log(data.data[num])
+					var datas = data.data[num]
+					for (var key in datas) {
+						$("#" + key).html(datas[key])
+					}
+
+				}
+
+			}
+		})
+
+		// $.ajax(Url+'/record',{
+		// 	data:{
+		// 		id : id,
+		// 	},
+		// 	//data.data.length
+		// 	dataType:'json',//服务器返回json格式数据
+		// 	type:'post',//HTTP请求类型
+		// 	timeout:10000,//超时时间设置为10秒；
+		// 	success:function(data){
+
+		// 		if(data.status==1){
+		// 			console.log("成功");
+		// 			for(var key in data.data[num]){
+		// 				$("#" + key).html(data.data[num].key)
+		// 			}
+		// 			}
+		//   //          var address = data.data[num].Address;
+		// 	 //    var build_name = data.data[num].BuildName;
+		// 		// var host = data.data[num].Host
+		// 		// var host_name= data.data[num].HostName
+		// 		// var host_id = data.data[num].HostId
+		// 		// var floor = data.data[num].Floor
+		// 		// var area = data.data[num].Area
+		// 		// var niandai = data.data[num].Time
+		// 		// var jiegou = data.data[num].Jiegou
+		// 		// var way = data.data[num].Way
+		// 		// var nature = data.data[num].Nature
+		// 		// var purpose = data.data[num].Purpose
+		// 		// var yongdi = data.data[num].Yongdi
+		// 		// var jungong = data.data[num].Jungong
+		// 		// var jinying = data.data[num].Jinying
+		// 		// var guihua = data.data[num].Guihua
+		// 		// var dengji = data.data[num].Dengji
+		// 		// var remould = data.data[num].Remould
+		// 		// var recontent = data.data[num].ReContent
+		// 		// var cainuan = data.data[num].Cainuan
+		// 		// var chuishi = data.data[num].Chuishi
+		// 		// var dizhi = data.data[num].Dizhi
+		// 		// var fangwu = data.data[num].Fangwu
+		// 		// var xiaofang = data.data[num].Xiangfang
+		// 		// var cailiao = data.data[num].Cailiao
+		// 		// var linjian = data.data[num].Linjian
+		// 		// var renovate = data.data[num].Renovate
+
+		// 		else{
+		// 			console.log("账号或密码不正确");
+		// 		}
+		// 	},
+		// 	error:function(xhr,type,errorThrown){
+
+		// 	}
+		// });
+	</script>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<!-- 新 Bootstrap4 核心 CSS 文件 -->
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+
+		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+		<!-- <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script> -->
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+		<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+		<!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+		<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/sticky-footer-navbar.css" rel="stylesheet">
+		<!-- <script src="./js/next.js"></script>
+		<script src="./js/function.js"></script> -->
+		<title>农村房屋信息采集助手</title>
+	</head>
+	<style>
+		.footer{
+			position: fixed;
+			bottom: 0;
+		}
+		.u-center{
+			text-align: center;
+			
+		}
+		.u-btn{
+			background-color: #002752;
+			border-color: #002752;
+		}
+		
+	    .one{
+	        width: 28%;
+	        float: left;
+	    }
+		.two {
+			width: 63%;
+			float: left;
+			box-sizing: border-box;
+			}
+		.fnt{
+			font-size:15px;
+		}
+		
+		.list-group-item{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		
+		
+	</style>
+	<body>
+		<header style="width: 100%;position: fixed;top: 0;">
+			<nav class="navbar navbar-dark" style="background-color: #002752;">
+
+				<a id="back" style="color: white;font-size: 15px;" onclick="back()">返回</a>
+				<div style="color: white;font-size: 20px;justify-content: center;">
+					已填报信息
+				</div>
+				<a>"&nbsp;""&nbsp;"</a>
+
+			</nav>
+		</header>
+		<div class="fnt" style="margin-top: 20%;">
+			<div class="btn-group" role="group" aria-label="Basic example" style="margin-left: 3%;">
+				<button type="button" class="btn btn-secondary fnt" onclick="self()">自 建 房</button>
+				<button type="button" class="btn btn-secondary fnt" onclick="no_self()">非自建房</button>
+			</div>
+		</div>
+		<div id="self">
+			<div id="a" class="list-group"></div>
+		</div>
+		<div id="no_self" style="margin-top: 5%;">
+			<div id="a" class="list-group"></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		function GetQueryString(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if (r != null) return unescape(r[2]);
+			return null;
+		}
+		var id = GetQueryString("id");
+		console.log("用户账号为:" + id);
+		var ui1 = document.getElementById("self");
+		var ui2 = document.getElementById("no_self");
+		ui2.style.display = 'none';
+		var kind = 'noself';
+
+		function back() {
+			window.location.href = "http://www.shie1d.top/index.html?id=" + id;
+		}
+
+		function self() {
+			ui1.style.display = '';
+			ui2.style.display = 'none';
+			kind = 'self';
+			console.log(1)
+		}
+
+		function no_self() {
+			ui1.style.display = 'none';
+			ui2.style.display = '';
+			kind = 'noself';
+			console.log(2)
+		}
+		var Url = "http://www.shie1d.top:8080";
+
+		function add(a) {
+			window.location.href = "excel.html?id=" + id + "&num=" + a+ "&kind=" + kind;
+		}
+		
+		$.ajax(Url + '/record', {
+			data: {
+				id: id,
+				kind: kind,
+			},
+			//data.data.length
+			dataType: 'json', //服务器返回json格式数据
+			type: 'post', //HTTP请求类型
+			timeout: 10000, //超时时间设置为10秒；
+			success: function(data) {
+
+				if (data.status == 1) {
+					console.log("成功");
+					var a = "";
+					for (var i = 0, j = 1; i < data.data.length; i++, j++) {
+						a += '<a class="list-group-item list-group-item-action fnt" onclick="add(' + i + ')">' + ' <p class="mb-1">' +
+							j + "&nbsp;&nbsp;&nbsp;" + data.data[i].BuildName + '</p> <small class="text-muted">' + data.data[i].CDate +
+							'</small></a>'
+					}
+
+					$("#a").html(a)
+				} else {
+					console.log("账号或密码不正确");
+				}
+			},
+			error: function(xhr, type, errorThrown) {
+
+			}
+		});
+	</script>
+</html>
