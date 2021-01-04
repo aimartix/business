@@ -6,6 +6,7 @@ function show(a) {
 		ui1.style.display = '';
 		ui2.style.display = '';
 		ui3.style.display = '';
+		uip.style.display = 'none';
 		ui4.style.display = 'none';
 		ui5.style.display = 'none';
 		ui51.style.display = 'none';
