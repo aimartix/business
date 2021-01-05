@@ -17,7 +17,7 @@
 		<link href="css/sticky-footer-navbar.css" rel="stylesheet">
 		<script src="./js/nonext.js"></script>
 		<script src="./js/function.js"></script>
-		<title>农村房屋信息采集助手</title>
+		<title>商业物业数据统计</title>
 
 	</head>
 	<style>
@@ -59,29 +59,29 @@
 		<header style="width: 100%;position: fixed;top: 0; height: 10%;">
 			<nav class="navbar navbar-dark" style="background-color: #002752;">
 
-				<a id="back" style="color: white;font-size: 15px;" onclick="displayShowUI1()">返回</a>
-				<div style="color: white;text-align: center;font-size: 20px;">
+				<a id="back" style="color: white;font-size: 15px;" onclick="back()">返回</a>
+				<div style="color: white;font-size: 20px;justify-content: center;">
 					信息填写
 				</div>
-				<a style="color: white;font-size: 15px;" onclick="exit()">退出填报</a>
+				<a>"&nbsp;""&nbsp;"</a>
 			</nav>
 		</header>
 
 		<!-- Begin page content -->
-		<div style="overflow: auto;height: 80%;margin-top: 15%">
-			<div style="width:90%;margin-left: 5%;margin-right: 5%;margin-bottom: 30%;">
+		<div style="overflow: auto;height: 80%;margin-top: 20%">
+			<div style="width:90%;margin-left: 5%;margin-right: 5%;margin-bottom: 20%;">
 				<form>
-					<div class="form-group row fnt" style="margin-top: 5%;">
+					<div class="form-group row fnt" style="margin-top:18%;">
 						<label class="one col-sm-7 col-form-label col-form-label-sm fnt">坐落</label>
-						<input id="dizhi" class="form-control-sm form-control two fnt" style="width: 65%; " placeholder="请输入" />
+						<input id="locate" class="form-control-sm form-control two fnt" style="width: 65%; " placeholder="请输入" />
 					</div>
 					<div class="form-group row fnt">
 						<label class="one col-sm-7 col-form-label col-form-label-sm fnt">项目名称</label>
-						<input id="zu" class="form-control-sm form-control two fnt" style="width: 65%; " placeholder="请输入" />
+						<input id="name" class="form-control-sm form-control two fnt" style="width: 65%; " placeholder="请输入" />
 					</div>
 					<div class="form-group row fnt">
 						<label class="one col-sm-7 col-form-label col-form-label-sm fnt">项目分类</label>
-						<select id="chanquan" class="form-control-sm form-control two fnt" id="Host" style="width: 65%;">
+						<select id="kind" class="form-control-sm form-control two fnt" id="Host" style="width: 65%;">
 							<option selected>请选择</option>
 							<option value="底商">底商</option>
 							<option value="酒店">酒店</option>
@@ -92,216 +92,180 @@
 					</div>
 					<div class="form-group row fnt">
 						<label class="one col-sm-7 col-form-label col-form-label-sm fnt">具体房屋</label>
-						<input id="host_name" class="form-control-sm form-control two fnt" style="width: 65%; " placeholder="请输入" />
+						<input id="specific" class="form-control-sm form-control two fnt" style="width: 65%; " placeholder="请输入" />
 					</div>
-					<!-- <div class="form-group row fnt">
-					<label class="one col-sm-7 col-form-label col-form-label-sm fnt">建筑层数</label>
-					<select id="floor" class="form-control-sm form-control two fnt" id="Floor" style="width: 65%;">
-						<option selected>请选择</option>
-						<option value="1层">1层</option>
-						<option value="2层">2层</option>
-						<option value="3层及以上">3层及以上</option>
-					</select>
-				</div> -->
 					<div class="form-group row fnt">
 						<label class="one col-sm-7 col-form-label col-form-label-sm fnt">楼层</label>
-						<input id="area" class="form-control-sm form-control two fnt" style="width: 65%; " placeholder="请输入" />
+						<input id="floor" class="form-control-sm form-control two fnt" style="width: 65%; " placeholder="请输入" />
 					</div>
 					<div class="form-group row fnt">
 						<label class="one col-sm-7 col-form-label col-form-label-sm fnt">层高</label>
-						<input id="area" class="form-control-sm form-control two fnt" style="width: 65%; " placeholder="请输入" />
+						<input id="fheight" class="form-control-sm form-control two fnt" style="width: 65%; " placeholder="请输入" />
 					</div>
 					<div class="form-group row fnt">
 						<label class="one col-sm-7 col-form-label col-form-label-sm fnt">主要用途</label>
-						<select id="chanquan" class="form-control-sm form-control two fnt" id="Host" style="width: 65%;">
+						<select id="purpose" class="form-control-sm form-control two fnt" style="width: 65%;" onchange="show()">
 							<option selected>请选择</option>
 							<option value="商业">商业</option>
-							<option value="办公">酒店</option>
-							<option value="公寓">办公</option>
+							<option value="酒店">酒店</option>
+							<option value="办公">办公</option>
 						</select>
 					</div>
-					<div class="form-group row fnt" style="overflow: hidden;">
-						<!-- 						<label class="one col-sm-7 col-form-label col-form-label-sm fnt">主要用途</label> -->
+					<div id="ppp" class="form-group row fnt" style="overflow: hidden;">
 						<ul class="list-group" style="width: 65%;margin-left: 28%;">
-							<li class="list-group-item">外铺<input type="checkbox" name="" id="p1" value="行政办公" /></li>
-							<li class="list-group-item">内铺<input type="checkbox" name="" id="p2" value="教育设施" /></li>
-							<li class="list-group-item">底商<input type="checkbox" name="" id="p3" value="医疗卫生" /></li>
-							<li class="list-group-item">一拖二<input type="checkbox" name="" id="p4" value="文化设施" /></li>
-							<li class="list-group-item">一拖三<input type="checkbox" name="" id="p5" value="养老服务" /></li>
-							<li class="list-group-item">一拖四<input type="checkbox" name="" id="p6" value="批发零售" /></li>
-							<li class="list-group-item">带负层<input type="checkbox" name="" id="p7" value="餐饮服务" /></li>
-							<li class="list-group-item">带夹层<input type="checkbox" name="" id="p8" value="住宿宾馆" /></li>
-							<li class="list-group-item">地下室<input type="checkbox" name="" id="p9" value="休闲娱乐" /></li>
-							<li class="list-group-item">半地下室<input type="checkbox" name="" id="p10" value="宗教场所" /></li>
+							<li class="list-group-item">外铺<input type="checkbox" name="" id="p1" value="外铺" /></li>
+							<li class="list-group-item">内铺<input type="checkbox" name="" id="p2" value="内铺" /></li>
+							<li class="list-group-item">底商<input type="checkbox" name="" id="p3" value="底商" /></li>
+							<li class="list-group-item">一拖二<input type="checkbox" name="" id="p4" value="一拖二" /></li>
+							<li class="list-group-item">一拖三<input type="checkbox" name="" id="p5" value="一拖三" /></li>
+							<li class="list-group-item">一拖四<input type="checkbox" name="" id="p6" value="一拖四" /></li>
+							<li class="list-group-item">带负层<input type="checkbox" name="" id="p7" value="带负层" /></li>
+							<li class="list-group-item">带夹层<input type="checkbox" name="" id="p8" value="带夹层" /></li>
+							<li class="list-group-item">地下室<input type="checkbox" name="" id="p9" value="地下室" /></li>
+							<li class="list-group-item">半地下室<input type="checkbox" name="" id="p10" value="半地下室" /></li>
 						</ul>
 					</div>
 					<div class="form-group row fnt" style="margin-top: 5%;">
 						<label class="one col-sm-7 col-form-label col-form-label-sm fnt">临路状况</label>
-						<select id="chanquan" class="form-control-sm form-control two fnt" id="Host" style="width: 65%;">
+						<select id="linlu" class="form-control-sm form-control two fnt"style="width: 65%;" onchange="lin()">
 							<option selected>请选择</option>
 							<option value="一面临路">一面临路</option>
 							<option value="二面临路">二面临路</option>
 							<option value="多面临路">多面临路</option>
 						</select>
 					</div>
-					<div class="form-group row fnt" style="margin-top: 5%;">
-						<label class="one col-sm-7 col-form-label col-form-label-sm fnt">临路类型</label>
-						<select id="chanquan" class="form-control-sm form-control two fnt" id="Host" style="width: 65%;">
-							<option selected>请选择</option>
+					<div id="linlu1" class="form-group row fnt" style="margin-top: 5%;">
+						<!-- <label class="one col-sm-7 col-form-label col-form-label-sm fnt">临路类型</label> -->
+						<select id="one1" class="form-control-sm form-control two fnt" id="Host" style="width: 24%;margin-left: 2%;margin-right: 2%;">
+							<option selected>类型</option>
 							<option value="主干道">主干道</option>
 							<option value="次干道">次干道</option>
 							<option value="支路">支路</option>
 							<option value="小巷">小巷</option>
 							<option value="小巷道路">小巷道路</option>
 						</select>
+						<input id="one2" class="form-control-sm form-control two fnt" style="width: 65%; " placeholder="请输入" />
 					</div>
-					<div class="form-group row fnt">
-						<label class="one col-sm-7 col-form-label col-form-label-sm fnt"></label>
-						<input id="area" class="form-control-sm form-control two fnt" style="width: 65%; " placeholder="请输入" />
+					<div id="linlu2" class="form-group row fnt" style="margin-top: 5%;">
+						<!-- <label class="one col-sm-7 col-form-label col-form-label-sm fnt">临路类型</label> -->
+						<select id="two1" class="form-control-sm form-control two fnt" id="Host" style="width: 24%;margin-left: 2%;margin-right: 2%;">
+							<option selected>类型</option>
+							<option value="主干道">主干道</option>
+							<option value="次干道">次干道</option>
+							<option value="支路">支路</option>
+							<option value="小巷">小巷</option>
+							<option value="小巷道路">小巷道路</option>
+						</select>
+						<input id="two2" class="form-control-sm form-control two fnt" style="width: 65%; " placeholder="请输入" />
 					</div>
+					<div id="linlu3" class="form-group row fnt" style="margin-top: 5%;">
+						<!-- <label class="one col-sm-7 col-form-label col-form-label-sm fnt">临路类型</label> -->
+						<select id="three1" class="form-control-sm form-control two fnt" id="Host" style="width: 24%;margin-left: 2%;margin-right: 2%;">
+							<option selected>类型</option>
+							<option value="主干道">主干道</option>
+							<option value="次干道">次干道</option>
+							<option value="支路">支路</option>
+							<option value="小巷">小巷</option>
+							<option value="小巷道路">小巷道路</option>
+						</select>
+						<input id="three2" class="form-control-sm form-control two fnt" style="width: 65%; " placeholder="请输入" />
+					</div>
+
 					<div class="form-group row fnt">
 						<label class="one col-sm-7 col-form-label col-form-label-sm fnt">建筑面积</label>
 						<input id="area" class="form-control-sm form-control two fnt" style="width: 65%; " placeholder="请输入" />
 					</div>
 					<div class="form-group row fnt">
 						<label class="one col-sm-7 col-form-label col-form-label-sm fnt">租金</label>
-						<input id="area" class="form-control-sm form-control two fnt" style="width: 65%; " placeholder="请输入" />
+						<input id="rent" class="form-control-sm form-control two fnt" style="width: 65%; " placeholder="请输入" />
 					</div>
 					<div class="form-group row fnt">
 						<label class="one col-sm-7 col-form-label col-form-label-sm fnt">售价</label>
-						<input id="area" class="form-control-sm form-control two fnt" style="width: 65%; " placeholder="请输入" />
+						<input id="price" class="form-control-sm form-control two fnt" style="width: 65%; " placeholder="请输入" />
 					</div>
 					<div class="form-group row fnt">
 						<label class="one col-sm-7 col-form-label col-form-label-sm fnt">物业管理公司</label>
-						<input id="area" class="form-control-sm form-control two fnt" style="width: 65%; " placeholder="请输入" />
+						<input id="property" class="form-control-sm form-control two fnt" style="width: 65%; " placeholder="请输入" />
 					</div>
 					<div class="form-group row fnt">
 						<label class="one col-sm-7 col-form-label col-form-label-sm fnt">收费标准</label>
-						<input id="area" class="form-control-sm form-control two fnt" style="width: 65%; " placeholder="请输入" />
+						<input id="standard" class="form-control-sm form-control two fnt" style="width: 65%; " placeholder="请输入" />
 					</div>
 					<div class="form-group row fnt">
 						<label class="one col-sm-7 col-form-label col-form-label-sm fnt">备注</label>
-						<input id="area" class="form-control-sm form-control two fnt" style="width: 65%; " placeholder="请输入" />
+						<textarea class="form-control" id="remark" rows="3" style="width: 65%; "></textarea>
 					</div>
-					<!-- <div class="form-group row fnt" style="overflow: hidden;">
-						<label class="one col-sm-7 col-form-label col-form-label-sm fnt">主要用途</label>
-						<ul class="list-group" style="width: 65%;">
-							<li class="list-group-item">行政办公<input type="checkbox" name="" id="p1" value="行政办公" /></li>
-							<li class="list-group-item">教育设施<input type="checkbox" name="" id="p2" value="教育设施" /></li>
-							<li class="list-group-item">医疗卫生<input type="checkbox" name="" id="p3" value="医疗卫生" /></li>
-							<li class="list-group-item">文化设施<input type="checkbox" name="" id="p4" value="文化设施" /></li>
-							<li class="list-group-item">养老服务<input type="checkbox" name="" id="p5" value="养老服务" /></li>
-							<li class="list-group-item">批发零售<input type="checkbox" name="" id="p6" value="批发零售" /></li>
-							<li class="list-group-item">餐饮服务<input type="checkbox" name="" id="p7" value="餐饮服务" /></li>
-							<li class="list-group-item">住宿宾馆<input type="checkbox" name="" id="p8" value="住宿宾馆" /></li>
-							<li class="list-group-item">休闲娱乐<input type="checkbox" name="" id="p9" value="休闲娱乐" /></li>
-							<li class="list-group-item">宗教场所<input type="checkbox" name="" id="p10" value="宗教场所" /></li>
-							<li class="list-group-item">农贸市场<input type="checkbox" name="" id="p11" value="农贸市场" /></li>
-							<li class="list-group-item">生产加工<input type="checkbox" name="" id="p12" value="生产加工" /></li>
-							<li class="list-group-item">仓储物流<input type="checkbox" name="" id="p13" value="仓储物流" /></li>
-							<li class="list-group-item">其他<input type="checkbox" name="" id="p14" value="其他" /></li>
-
-						</ul>
-					</div> -->
 				</form>
 			</div>
-			
+
 		</div>
 
 
-		<footer class="footer mt-auto py-2" style="width: 100%;height: 10%;margin-top:20%;">
+		<footer class="footer mt-auto py-2" style="width: 100%;height: 10%;margin-top:10%;">
 			<div id="default" class="u-center">
-				<button id="next" type="button" class="btn btn-primary u-btn" style="width: 70%;margin-left: auto;margin-right: auto;"
-				 onclick="displayShowUI()">提交</button>
+				<button id="next" type="button" class="btn btn-primary u-btn" style="width: 70%;margin-left: auto;margin-right: auto;">提交</button>
 			</div>
 		</footer>
 
 
 	</body>
 	<script type="text/javascript">
-		var ui1 = document.getElementById("div1");
-		var ui2 = document.getElementById("div2");
-		var ui3 = document.getElementById("div3");
-		var ui4 = document.getElementById("div4");
-		var ui5 = document.getElementById("div5");
-		var ui51 = document.getElementById("div51");
-		var ui52 = document.getElementById("div52");
-		var ui53 = document.getElementById("div53");
-		var ui54 = document.getElementById("div54");
-		var ui55 = document.getElementById("div55");
-		var ui6 = document.getElementById("div6");
-		var def = document.getElementById("default");
-		var last = document.getElementById("last");
-
-		function GetQueryString(name) {
-			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-			var r = window.location.search.substr(1).match(reg);
-			if (r != null) return unescape(r[2]);
-			return null;
-		}
-		var id = GetQueryString("id");
-		console.log("用户账号为:" + id);
-
-
-
-
-
-		var i = 0; //初始化步骤数为0
-
-		show(0);
-
-		function displayShowUI() { //按钮“下一步”点击后显示页面
-
-			++i;
-			if (i >= 6) {
-				i = 6;
-			}
-			//step(i);
-			show(i);
-
-		}
-
-		function displayShowUI1() { //按钮“下一步”点击后显示页面
-			if (i == 0) {
-				i = 0;
-				window.location.href = "http://www.shie1d.top/index.html?id=" + id;
+		var uip = document.getElementById("ppp")
+		var uilin1 = document.getElementById("linlu1")
+		var uilin2 = document.getElementById("linlu2")
+		var uilin3 = document.getElementById("linlu3")
+		uip.style.display = 'none'
+		uilin1.style.display = 'none'
+		uilin2.style.display = 'none'
+		uilin3.style.display = 'none'
+		function show() {
+			
+			if (document.getElementById("purpose").value == '商业') {
+				uip.style.display = ''
 			} else {
-				--i;
-			}
-
-			show(i);
-		}
-
-		function exit() {
-			window.location.href = "index.html?id=" + id;
-		}
-
-		function dU() { //安全情况 风险类型弹出
-			if (document.getElementById("d").checked == true) {
-				ui51.style.display = '';
-			} else {
-				ui51.style.display = 'none';
-			}
-			if (document.getElementById("f").checked == true) {
-				ui52.style.display = '';
-			} else {
-				ui52.style.display = 'none';
-			}
-			if (document.getElementById("xf").checked == true) {
-				ui53.style.display = '';
-			} else {
-				ui53.style.display = 'none';
-			}
-			if (document.getElementById("j").checked == true) {
-				ui54.style.display = '';
-			} else {
-				ui54.style.display = 'none';
-			}
-			if (document.getElementById("l").checked == true) {
-				ui55.style.display = '';
-			} else {
-				ui55.style.display = 'none';
+				uip.style.display = 'none'
 			}
 		}
+		function lin() {
+			
+			if (document.getElementById("linlu").value == '一面临路') {
+				uilin1.style.display = ''
+				uilin2.style.display = 'none'
+				uilin3.style.display = 'none'
+			} else if(document.getElementById("linlu").value == '二面临路'){
+				uilin1.style.display = ''
+				uilin2.style.display = ''
+				uilin3.style.display = 'none'
+			} else if(document.getElementById("linlu").value == '多面临路'){
+				uilin1.style.display = ''
+				uilin2.style.display = ''
+				uilin3.style.display = ''
+			} else{
+				uilin1.style.display = 'none'
+				uilin2.style.display = 'none'
+				uilin3.style.display = 'none'
+			}
+		}
+       function back(){
+		   window.location.href = "index.html";
+	   }
+		//       function purpose(){
+		// 	console.log(document.getElementById("purpose").value == '商业')
+		// 	if (document.getElementById("purpose").value == '商业'){
+		// 		uip.style.display = ''
+		// 	}
+		// 	else{
+		// 		uip.style.display = 'none'
+		// 	}
+		// }
+		// function GetQueryString(name) {
+		// 	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+		// 	var r = window.location.search.substr(1).match(reg);
+		// 	if (r != null) return unescape(r[2]);
+		// 	return null;
+		// }
+		// var id = GetQueryString("id");
+		// console.log("用户账号为:" + id);
 	</script>
+
 </html>

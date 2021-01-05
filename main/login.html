@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html style="background-color: #002752;">
 	<head>
@@ -102,4 +103,110 @@
 			});
 		}
 	</script>
+=======
+<!DOCTYPE html>
+<html style="background-color: #002752;">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<!-- 新 Bootstrap4 核心 CSS 文件 -->
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+
+		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+		<!-- <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script> -->
+		<script src="js/jquery-3.4.1.min.js"></script>
+		<!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+		<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+		<!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+		<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/sticky-footer-navbar.css" rel="stylesheet">
+		<title>农村房屋信息采集助手</title>
+	</head>
+	<style>
+		.u-center{
+			text-align: center;
+		}
+		.btn-primary{
+			background-color: #0056B3;
+			border: #0056B3;
+			
+			
+		}
+		.a{
+			color: #0056B3;
+		}
+	</style>
+	<body bgcolor="#002752">
+		<div style="background-color: #002752;">
+			<div class="card w-75" style="margin-top:40%;margin-left: auto;margin-right: auto;">
+				<div class="card-body">
+					<div class="card-title" style="text-align: center; color:#0056B3;font-size: 20px;font-weight: bold;">商业物业数据整理及搜盘信息统计表</div>
+					<div class="input-group mb-3" style="margin-top: 30px;">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="inputGroup-sizing-default">账号</span>
+						</div>
+						<input id="account" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
+						 placeholder="请输入账号">
+					</div>
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="inputGroup-sizing-default">密码</span>
+						</div>
+						<input id="password" type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
+						 placeholder="请输入密码">
+					</div>
+					<div class="u-center">
+						<button id="login" type="button" class="btn btn-primary" style="width: 50%; margin-top: 10px;" onclick="login()">登录</button>
+					</div>
+					<a href="#" class="card-link" style="text-align: center; color: #0056B3; font-size: 12px;">忘记密码</a>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		function showToast(msg, duration) {
+			duration = isNaN(duration) ? 3000 : duration;
+			var m = document.createElement('div');
+			m.innerHTML = msg;
+			m.style.cssText =
+				"width:60%; min-width:180px; background:#000; opacity:0.6; height:auto;min-height: 30px; color:#fff; line-height:30px; text-align:center; border-radius:4px; position:fixed; top:60%; left:20%; z-index:999999;";
+			document.body.appendChild(m);
+			setTimeout(function() {
+				var d = 0.5;
+				m.style.webkitTransition = '-webkit-transform ' + d + 's ease-in, opacity ' + d + 's ease-in';
+				m.style.opacity = '0';
+				setTimeout(function() {
+					document.body.removeChild(m)
+				}, d * 1000);
+			}, duration);
+		}
+
+		function login() {
+			$.ajax({
+				url: "http://www.shie1d.top:8080/login",
+				data: {
+					id: $("#account").val(),
+					password: $("#password").val(),
+				},
+				dataType: 'json', //服务器返回json格式数据
+				type: 'post', //HTTP请求类型
+				timeout: 10000, //超时时间设置为10秒；
+				success: function(data) {
+
+					if (data.status == 1) {
+						showToast("登录成功");
+						//console.log("登录成功");
+						window.location.href = "index.html?id=" + $("#account").val();
+					} else if (data.status == 0) {
+						showToast("账号或密码错误");
+					}
+				},
+				error: function(xhr, type, errorThrown) {
+
+				}
+			});
+		}
+	</script>
+>>>>>>> ee080c29699b92b7008bc60039f534d0a5a7a24c
 </html>

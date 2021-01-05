@@ -17,7 +17,7 @@
 		<link href="css/sticky-footer-navbar.css" rel="stylesheet">
 		<!-- <script src="./js/next.js"></script>
 		<script src="./js/function.js"></script> -->
-		<title>农村房屋信息采集助手</title>
+		<title>商业物业数据统计</title>
 	</head>
 	<style>
 		.footer{
@@ -45,6 +45,10 @@
 		.fnt{
 			font-size:15px;
 		}
+		.fnt1{
+			font-size:10px;
+			text-align: center;
+		}
 		
 		.list-group-item{
 			display: flex;
@@ -60,62 +64,45 @@
 
 				<a id="back" style="color: white;font-size: 15px;" onclick="back()">返回</a>
 				<div style="color: white;font-size: 20px;justify-content: center;">
-					已填报信息
+					已填信息
 				</div>
 				<a>"&nbsp;""&nbsp;"</a>
 
 			</nav>
 		</header>
-		<div class="fnt" style="margin-top: 20%;">
-			<div class="btn-group" role="group" aria-label="Basic example" style="margin-left: 3%;">
-				<button type="button" class="btn btn-secondary fnt" onclick="self()">自 建 房</button>
-				<button type="button" class="btn btn-secondary fnt" onclick="no_self()">非自建房</button>
-			</div>
-		</div>
-		<div id="self">
-			<div id="a" class="list-group"></div>
-		</div>
-		<div id="no_self" style="margin-top: 5%;">
-			<div id="a" class="list-group"></div>
+		<div style="margin-top: 20%; margin-left: 5%; margin-right: 5%;">
+			<table class="table table-bordered fnt1">
+			  <thead>
+			    <tr class="list-group-item-secondary">
+			      <th style="width: 20%; height: 3%;" >序号</th>
+			      <th style="width: 50%; height: 3%;">坐落</th>
+			      <th style="width: 30%; height: 3%;">项目名称</th>
+			    </tr>
+			  </thead>
+			  <tbody >
+			    <tr >
+			      <td >1</td>
+			      <td>五一东街4号</td>
+			      <td>速8酒店</td>
+			    </tr>
+			    <tr>
+			      <td>2</td>
+			      <td>迎泽大街27号(五一东街</td>
+			      <td>万邦国际大厦</td>
+			    </tr>
+			    <tr>
+			      <td>3</td>
+			      <td>五一东街28号</td>
+			      <td>美博城</td>
+			    </tr>
+			  </tbody>
+			</table>
 		</div>
 	</body>
 	<script type="text/javascript">
-		function GetQueryString(name) {
-			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-			var r = window.location.search.substr(1).match(reg);
-			if (r != null) return unescape(r[2]);
-			return null;
-		}
-		var id = GetQueryString("id");
-		console.log("用户账号为:" + id);
-		var ui1 = document.getElementById("self");
-		var ui2 = document.getElementById("no_self");
-		ui2.style.display = 'none';
-		var kind = 'noself';
-
 		function back() {
-			window.location.href = "http://www.shie1d.top/index.html?id=" + id;
+			window.location.href = "index.html";
 		}
-
-		function self() {
-			ui1.style.display = '';
-			ui2.style.display = 'none';
-			kind = 'self';
-			console.log(1)
-		}
-
-		function no_self() {
-			ui1.style.display = 'none';
-			ui2.style.display = '';
-			kind = 'noself';
-			console.log(2)
-		}
-		var Url = "http://www.shie1d.top:8080";
-
-		function add(a) {
-			window.location.href = "excel.html?id=" + id + "&num=" + a+ "&kind=" + kind;
-		}
-		
 		$.ajax(Url + '/record', {
 			data: {
 				id: id,

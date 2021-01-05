@@ -15,7 +15,7 @@
 		<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		<link href="css/bootstrap.css" rel="stylesheet">
 		<link href="css/sticky-footer-navbar.css" rel="stylesheet">
-		<title>农村房屋信息采集助手</title>
+		<title>商业物业数据统计</title>
 	</head>
 	<style>
 		.one,
@@ -34,8 +34,8 @@
 		}
 	</style>
 	<body>
-		<div style="background-color: #002752;color: white; font-size: 30px;text-align: center;margin-top: 30%;">农村房屋信息采集助手</div>
-		<div style="margin-top: 15%;">
+		<div style="background-color: #002752;color: white; font-size: 30px;text-align: center;margin-top: 30%;">商业物业数据统计</div>
+		<!-- <div style="margin-top: 15%;">
 			<div class="one row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
 			 style="margin-left: 7%;">
 				<div class="col p-4 d-flex flex-column position-static">
@@ -43,7 +43,7 @@
 
 					<a href="#" title="Placeholder link title" class="text-decoration-none" style="font-size: 12px;color: #002752;"
 					 onclick="self()">
-						自 建 房 填 报
+						信 息 填 写
 						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-building" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 							<path fill-rule="evenodd" d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694L1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z"></path>
 							<path d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z"></path>
@@ -66,16 +66,16 @@
 
 				</div>
 			</div>
-		</div>
-		<div style="margin-top: 10%;">
+		</div> -->
+		<div style="margin-top: 30%;">
 			<div class="one row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
 			 style="margin-left: 7%;">
-				<div id="account" class="col p-4 d-flex flex-column position-static">
+				<div class="col p-4 d-flex flex-column position-static">
 
 
-					<a href="#" title="Placeholder link title" class="text-decoration-none" style="font-size: 12px;color: #002752;"
-					 onclick="account()">
-						我 的 信 息&nbsp;&nbsp;
+					<a id="addmes" title="Placeholder link title" class="text-decoration-none" style="font-size: 12px;color: #002752;"
+					 onclick="addmes()">
+						数 据 统 计&nbsp;&nbsp;
 						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-lines-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 							<path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm2 9a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
 						</svg>
@@ -88,7 +88,7 @@
 				<div class="col p-4 d-flex flex-column position-static">
 					<a id="record" href="#" title="Placeholder link title" class="text-decoration-none" style="font-size: 12px;color: #002752;"
 					 onclick="record()">
-						已 填 报 信 息
+						已 填 信 息&nbsp;&nbsp;
 						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-earmark-text" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 							<path d="M4 0h5.5v1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h1V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z" />
 							<path d="M9.5 3V0L14 4.5h-3A1.5 1.5 0 0 1 9.5 3z" />
@@ -101,33 +101,30 @@
 		</div>
 	</body>
 	<script type="text/javascript">
-		function GetQueryString(name) {
-			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-			var r = window.location.search.substr(1).match(reg);
-			if (r != null) return unescape(r[2]);
-			return null;
-		}
-		var id = GetQueryString("id");
-		console.log("用户账号为:" + id);
+		// function GetQueryString(name) {
+		// 	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+		// 	var r = window.location.search.substr(1).match(reg);
+		// 	if (r != null) return unescape(r[2]);
+		// 	return null;
+		// }
+		// var id = GetQueryString("id");
+		// console.log("用户账号为:" + id);
 
-		function no_self() {
-			console.log("no_self");
-			window.location.href = "http://www.shie1d.top/no_self.html?id=" + id;
-		}
+		// function no_self() {
+		// 	console.log("no_self");
+		// 	window.location.href = "http://www.shie1d.top/no_self.html?id=" + id;
+		// }
 
-		function self() {
-			console.log("self");
-			window.location.href = "http://www.shie1d.top/self.html?id=" + id;
+		// function self() {
+		// 	console.log("self");
+		// 	window.location.href = "http://www.shie1d.top/self.html?id=" + id;
+		// }
+		function addmes() {
+			window.location.href = "message.html";
 		}
 
 		function record() {
-			console.log("record");
-			window.location.href = "http://www.shie1d.top//record.html?id=" + id;
-		}
-
-		function account() {
-			console.log("account");
-			window.location.href = "http://www.shie1d.top//account.html?id=" + id;
+			window.location.href = "record.html";
 		}
 	</script>
 </html>

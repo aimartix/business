@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function show(a) {
 
 	var i = a;
@@ -6,6 +7,46 @@ function show(a) {
 		ui1.style.display = '';
 		ui2.style.display = '';
 		ui3.style.display = '';
+		ui4.style.display = 'none';
+		ui5.style.display = 'none';
+		ui51.style.display = 'none';
+		ui52.style.display = 'none';
+		ui53.style.display = 'none';
+		ui54.style.display = 'none';
+		ui55.style.display = 'none';
+		ui6.style.display = 'none';
+		def.style.display = '';
+		last.style.display = 'none';
+
+	}
+	if (i == 1) {
+		back.innerText = "上一步"
+		ui1.style.display = 'none';
+		ui2.style.display = '';
+		ui3.style.display = 'none';
+		ui4.style.display = 'none';
+		ui5.style.display = 'none';
+		ui6.style.display = 'none';
+		def.style.display = '';
+		last.style.display = 'none';
+
+	}
+	if (i == 2) {
+		back.innerText = "上一步"
+		//title.innerText="改造情况";
+		ui1.style.display = 'none';
+		ui2.style.display = 'none';
+=======
+function show(a) {
+
+	var i = a;
+	if (i == 0) {
+		back.innerText = "返回"
+		ui1.style.display = '';
+		ui2.style.display = '';
+>>>>>>> ee080c29699b92b7008bc60039f534d0a5a7a24c
+		ui3.style.display = '';
+		uip.style.display = 'none';
 		ui4.style.display = 'none';
 		ui5.style.display = 'none';
 		ui51.style.display = 'none';
